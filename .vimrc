@@ -1,8 +1,3 @@
-" PATHOGEN
-" execute pathogen#infect()
-" call pathogen#helptags()
-" filetype plugin indent on
-
 " BASIC SET OPTIONS
 noremap <S-k> <NOP>
 set hidden
@@ -12,6 +7,20 @@ set number
 set numberwidth=1
 set ruler
 set splitright
+
+" PATHOGEN
+execute pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+
+" COLORS
+syntax on
+set t_Co=256
+set background=dark
+colorscheme OceanicNext
+highlight LineNr ctermfg=gray ctermbg=black
+
+let g:jsx_ext_required = 0 " extends JSX highlighting to JS files
 
 " TABS
 set tabstop=4
@@ -23,11 +32,6 @@ set noexpandtab
 set hlsearch
 set incsearch
 
-" COLORS
-syntax on
-colorscheme delek
-set t_Co=256
-set background=dark
 
 " LEADER
 let mapleader="\<Space>"
@@ -49,6 +53,7 @@ nnoremap <Leader>a :ArgWrap<CR>
 nnoremap <Leader>vim :source $MYVIMRC<CR>
 
 "	" BUFFER MANIPULATION
+nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :wq<CR>
 nnoremap <Leader>Q :qall<CR>
@@ -56,7 +61,10 @@ nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>N :bN<CR>
 
 "	" TEMPLATES
-nnoremap <silent> <leader>crc :r ~/.vim/templates/react-component.jsx<CR>
+nnoremap <silent> <leader>rrsfc :r ~/.vim/templates/react-stateless-functional-component.jsx<CR>
+nnoremap <silent> <leader>rrcc :r ~/.vim/templates/react-component-common.jsx<CR>
+nnoremap <silent> <leader>rrcv :r ~/.vim/templates/react-component-verbose.jsx<CR>
+nnoremap <silent> <leader>rrt :r ~/.vim/templates/react-tests.js<CR>
 
 "	" SPELL CORRECTION
 iabbrev flase false

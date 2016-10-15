@@ -1,0 +1,45 @@
+#! /bin/sh
+
+OS=`uname -s`
+[[ $OS = Linux ]] && echo "Linux not yet supported, try this command on a Mac" && exit;
+
+GIT_NAME=git
+if [ $PWD = "/home/nathaniel" ]; then
+	GIT_NAME='/usr/bin/git --git-dir=/home/nathaniel/.rivendell/ --work-tree=/home/nathaniel'
+fi
+
+echo Enter name to search:;
+read NAME;
+echo "Enter number of weeks to search (integer > 0):";
+read NUM_WEEKS;
+
+COUNTER=0
+	SUMMARY_START_PERIOD=`date -v -$NUM_WEEKS\w '+%s'`
+	SUMMARY_END_PERIOD=`date -v -$COUNTER\w '+%s'`
+
+	SUMMARY_STATISTICS=`git log --author=$NAME --pretty=tformat: --numstat --since $SUMMARY_START_PERIOD --until $SUMMARY_END_PERIOD | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
+
+	echo In $NUM_WEEKS weeks, $NAME contributed $SUMMARY_STATISTICS:
+
+while [  $COUNTER -lt $NUM_WEEKS ]; do
+	let COUNTER_OFFSET=COUNTER+1
+
+	START_WEEK_DATE=`date -v -$COUNTER_OFFSET\w '+%s'`
+	END_WEEK_DATE=`date -v -$COUNTER\w '+%s'`
+	START_WEEK_DATE_PRETTY=`date -v -$COUNTER_OFFSET\w '+%Y-%m-%d'`
+	END_WEEK_DATE_PRETTY=`date -v -$COUNTER\w '+%Y-%m-%d'`
+
+	DATE_RANGE_MESSAGE="Between $START_WEEK_DATE_PRETTY and $END_WEEK_DATE_PRETTY:" 
+	STATISTICS=`git log --author=$NAME --pretty=tformat: --numstat --since $START_WEEK_DATE --until $END_WEEK_DATE | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
+	echo $DATE_RANGE_MESSAGE $STATISTICS
+
+
+	let COUNTER=COUNTER+1 
+done
+
+#Stories to complete:
+	#time increments of weeks, months, days, and hours are supported (in that order of preference)
+	#weeks are from Sunday to Saturday
+	#works on linux and mac
+	#Each read line prompts for a number of options and has defaults when empty or whitespace is the input.
+

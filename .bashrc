@@ -9,9 +9,11 @@ if [ -f $HOME/.environment_variables ]; then
     . $HOME/.environment_variables
 fi
 
-PS1='@\W\$ '
+PS1='@\w $ '
 
 set -o vi
+
+export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 
 export NVM_DIR="/home/nathaniel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -1,0 +1,8 @@
+#! /bin/sh
+
+GIT_NAME=git
+if [ $PWD = "/home/nathaniel" ]; then
+	GIT_NAME='/usr/bin/git --git-dir=/home/nathaniel/.rivendell/ --work-tree=/home/nathaniel'
+fi
+
+$GIT_NAME log --format='%aN' | sort -u
