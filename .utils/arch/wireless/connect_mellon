@@ -1,1 +1,0 @@
-wpa_supplicant -B -D nl80211,wext -i wlp3s0 -c <(wpa_passphrase "mellon" $WIFI_MELLON)
