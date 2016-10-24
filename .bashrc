@@ -18,11 +18,11 @@ export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 
 # Linux environment setup
 if [ $OS = Linux ]; then
+	xbindkeys -p
 	export NVM_DIR="/home/nathaniel/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
-xbindkeys -p
 
 # Linux aliases
 if [ $OS = Linux ]; then
