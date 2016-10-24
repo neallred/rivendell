@@ -58,7 +58,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :wq<CR>
 nnoremap <Leader>Q :qall<CR>
 nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>N :bN<CR>
+nnoremap <Leader>p :bN<CR>
 
 "	" TEMPLATES
 nnoremap <silent> <leader>rrsfc :r ~/.vim/templates/react-stateless-functional-component.jsx<CR>
