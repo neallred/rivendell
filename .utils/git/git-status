@@ -16,11 +16,12 @@ read NUM_WEEKS;
 
 COUNTER=0
 
-	SUMMARY_START_PERIOD=`date -v-sun -v-$NUM_WEEKS\w -v0H -v0M -v0S '+%s'`
-	SUMMARY_END_PERIOD=`date -v-sun -v-$COUNTER\w -v0H -v0M -v0S '+%s'`
 	if [ $OS = Linux ]; then
 		SUMMARY_START_PERIOD=`date -d "last sunday - $NUM_WEEKS weeks" '+%s'`
 		SUMMARY_END_PERIOD=`date -d "last sunday - $COUNTER weeks" '+%s'`
+	elif [ $OS = Darwin ]; then
+		SUMMARY_START_PERIOD=`date -v-sun -v-$NUM_WEEKS\w -v0H -v0M -v0S '+%s'`
+		SUMMARY_END_PERIOD=`date -v-sun -v-$COUNTER\w -v0H -v0M -v0S '+%s'`
 	fi
 
 	SUMMARY_STATISTICS=`$GIT_NAME log --author=$NAME --pretty=tformat: --numstat --since $SUMMARY_START_PERIOD --until $SUMMARY_END_PERIOD | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
@@ -30,16 +31,16 @@ COUNTER=0
 while [  $COUNTER -lt $NUM_WEEKS ]; do
 	let COUNTER_OFFSET=COUNTER+1
 
-	START_WEEK=`date -v-sun -v -$COUNTER_OFFSET\w -v0H -v0M -v0S '+%s'`
-	END_WEEK=`date -v-sun -v -$COUNTER\w -v0H -v0M -v0S '+%s'`
-	START_WEEK_PRETTY=`date -r $START_WEEK '+%Y-%m-%d'`
-	END_WEEK_PRETTY=`date -r $END_WEEK '+%Y-%m-%d'`
-
 	if [ $OS = Linux ]; then
 		START_WEEK=`date -d "last sunday - $COUNTER_OFFSET weeks" '+%s'`
-		END_WEEK=`date "last sunday - $COUNTER weeks" '+%s'`
+		END_WEEK=`date -d "last sunday - $COUNTER weeks" '+%s'`
 		START_WEEK_PRETTY=`date -d @$START_WEEK '+%Y-%m-%d'`
-		END_WEEK_PRETTY=`date -D @$END_WEEK '+%Y-%m-%d'`
+		END_WEEK_PRETTY=`date -d @$END_WEEK '+%Y-%m-%d'`
+	elif [ $OS = Darwin ]; then
+		START_WEEK=`date -v-sun -v -$COUNTER_OFFSET\w -v0H -v0M -v0S '+%s'`
+		END_WEEK=`date -v-sun -v -$COUNTER\w -v0H -v0M -v0S '+%s'`
+		START_WEEK_PRETTY=`date -r $START_WEEK '+%Y-%m-%d'`
+		END_WEEK_PRETTY=`date -r $END_WEEK '+%Y-%m-%d'`
 	fi
 
 	DATE_RANGE_MESSAGE="From $START_WEEK_PRETTY to $END_WEEK_PRETTY:" 
