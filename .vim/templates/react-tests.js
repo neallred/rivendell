@@ -15,7 +15,7 @@ describe('Component', () => {
 		this.sandbox = sinon.sandbox.restore();
 	});
 
-	describe('method', function () {
+	describe('method', () => {
 
 		it('does what I want', () => {
 			//const instance = TestUtils.renderIntoDocument(<Component />);
