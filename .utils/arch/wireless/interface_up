@@ -1,1 +1,4 @@
+#! /bin/sh
+
 ip link set wlp3s0 up
+dhcpcd

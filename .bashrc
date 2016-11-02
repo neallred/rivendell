@@ -21,6 +21,8 @@ if [ $OS = Linux ]; then
 	xbindkeys -p
 	export NVM_DIR="/home/nathaniel/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+	export PATH=$PATH:~/manual_installs/endless-sky
 fi
 
 

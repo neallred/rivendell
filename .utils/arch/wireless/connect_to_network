@@ -1,2 +1,20 @@
 #! /bin/sh
-wpa_supplicant -B -D nl80211,wext -i wlp3s0 -c <(wpa_passphrase "$1" "$2")
+source /home/nathaniel/.environment_variables
+
+if [ $1 = mellon ]; then
+	NETWORK_NAME=$NETW_MELLON
+	NETWORK_PASS=$NETW_MELLON_PASS
+elif [ $1 = norton ]; then
+	NETWORK_NAME=$NETW_NORTON
+	NETWORK_PASS=$NETW_NORTON_PASS
+elif [ $1 = artaxerxes ]; then
+	NETWORK_NAME=$NETW_ARTAXERXES
+	NETWORK_PASS=$NETW_ARTAXERXES_PASS
+else
+	echo 'matched network not found, defaulting to mellon network'
+	NETWORK_NAME=$NETW_MELLON
+	NETWORK_PASS=$NETW_MELLON_PASS
+fi
+
+
+echo "wpa_supplicant -B -D nl80211,wext -i wlp3s0 -c <(wpa_passphrase '$NETWORK_NAME' '$NETWORK_PASS')" | bash
