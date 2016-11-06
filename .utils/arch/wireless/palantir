@@ -1,7 +1,15 @@
 #! /bin/sh
 source /home/nathaniel/.environment_variables
 
-if [ "$1" = "mellon" ]; then
+if [ "$#" -ge "2" ]; then
+	NETWORK_NAME=$1
+	NETWORK_PASS=$2
+elif [ "$1" = "read" ]; then
+	echo "Enter network name":
+	read NETWORK_NAME
+	echo "Enter network password (will not be saved anywhere):"
+	read NETWORK_PASS
+elif [ "$1" = "mellon" ]; then
 	NETWORK_NAME=$NETW_MELLON
 	NETWORK_PASS=$NETW_MELLON_PASS
 elif [ "$1" = "norton" ]; then
