@@ -7,7 +7,7 @@ OS=`uname -s`
 [[ $- != *i* ]] && return
 
 if [ -f $HOME/.environment_variables ]; then
-    . $HOME/.environment_variables
+    source $HOME/.environment_variables
 fi
 
 PS1='@\w $ '
@@ -23,6 +23,7 @@ if [ $OS = Linux ]; then
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 	export PATH=$PATH:~/manual_installs/endless-sky
+	export TERMINAL=$TERM
 fi
 
 
