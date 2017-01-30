@@ -18,6 +18,9 @@ elif [ "$1" = "norton" ]; then
 elif [ "$1" = "artaxerxes" ]; then
 	NETWORK_NAME=$NETW_ARTAXERXES
 	NETWORK_PASS=$NETW_ARTAXERXES_PASS
+elif [ "$1" = "churchill" ]; then
+	NETWORK_NAME=$NETW_ALLRED_F
+	NETWORK_PASS=$NETW_ALLRED_F_PASS
 else
 	echo 'matched network not found, defaulting to mellon network'
 	NETWORK_NAME=$NETW_MELLON
