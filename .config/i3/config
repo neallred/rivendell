@@ -35,7 +35,8 @@ new_window pixel 0
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec LANG=en_US.UTF-8 xterm
+#bindsym $mod+Return exec xterm
 # bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -166,4 +167,15 @@ bindsym $mod+Shift+p mode "passthrough"
 # finds out, if available)
 bar {
         status_command i3status -c ~/.config/i3/i3status.conf
+    colors {
+# two colors: text background 
+# three colors: border background text
+        background "#000000"
+        statusline "#AAAAAA"
+
+        focused_workspace   "#0B5B38" "#0B5B38" "#AAAAAA"
+        active_workspace   "#AAAAAA" "#333333"
+        inactive_workspace "#777777" "#222222"
+        urgent_workspace   "#AAAAAA" "#900000"
+    }
 }

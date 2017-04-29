@@ -24,13 +24,19 @@ if [ $OS = Linux ]; then
 
 	export PATH=$PATH:~/manual_installs/endless-sky
 	export TERMINAL=$TERM
+  export PATH=`pwd`/depot_tools:"$PATH"
+  export PATH=`pwd`/bin:"$PATH"
+
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  export LANGUAGE=en_US.UTF-8
 fi
 
 
 # Linux aliases
 if [ $OS = Linux ]; then
 	alias imladris='/usr/bin/git --git-dir=/home/nathaniel/.rivendell/ --work-tree=/home/nathaniel'
-	alias ls='ls --color=auto'
+	alias ls='ls --width=100 --color=auto'
 	alias elinks="elinks -no-connect"
 	alias lynx="lynx -vikeys"
 fi
@@ -39,3 +45,5 @@ fi
 if [ $OS = Darwin ]; then
 	. $HOME/.bashrc_mac
 fi
+
+alias python=/usr/bin/python2

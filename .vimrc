@@ -22,11 +22,17 @@ highlight LineNr ctermfg=gray ctermbg=black
 
 let g:jsx_ext_required = 0 " extends JSX highlighting to JS files
 
-" TABS
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
+" JS TABS
+" set tabstop=4
+" set softtabstop=4
+" set shiftwidth=4
+" set noexpandtab
+
+" C++ TABS
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 " SEARCHING
 set hlsearch
@@ -64,7 +70,10 @@ nnoremap <Leader>p :bN<CR>
 nnoremap <silent> <leader>rrsfc :r ~/.vim/templates/react-stateless-functional-component.jsx<CR>
 nnoremap <silent> <leader>rrcc :r ~/.vim/templates/react-component-common.jsx<CR>
 nnoremap <silent> <leader>rrcv :r ~/.vim/templates/react-component-verbose.jsx<CR>
-nnoremap <silent> <leader>rrt :r ~/.vim/templates/react-tests.js<CR>
+" rrtc assumes chai, sinon, mocha
+nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR> 
+nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
+nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
 
 "	" SPELL CORRECTION
 iabbrev flase false
