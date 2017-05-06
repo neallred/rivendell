@@ -57,6 +57,9 @@ vnoremap <C-k> 26k
 nnoremap <Space> <NOP>
 nnoremap <Leader>a :ArgWrap<CR>
 nnoremap <Leader>vim :source $MYVIMRC<CR>
+nnoremap <Leader>gf *ggnf.gf<CR>
+" find word at top of file where imports are, find the path part, and jump to
+" the file
 
 "	" BUFFER MANIPULATION
 nnoremap <Leader>d :bd<CR>
