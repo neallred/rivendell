@@ -8,6 +8,8 @@ set numberwidth=1
 set ruler
 set splitright
 
+set path=$PWD/**
+
 " PATHOGEN
 execute pathogen#infect()
 call pathogen#helptags()
@@ -64,6 +66,7 @@ nnoremap <Leader>gf *ggnf.gf<CR>
 "	" BUFFER MANIPULATION
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>W :!mkdir -p %:h<CR> :w<CR>
 nnoremap <Leader>q :wq<CR>
 nnoremap <Leader>Q :qall<CR>
 nnoremap <Leader>n :bn<CR>
