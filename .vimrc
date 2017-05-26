@@ -7,6 +7,7 @@ set number
 set numberwidth=1
 set ruler
 set splitright
+set history=1000
 
 set path=$PWD/**
 
@@ -80,6 +81,9 @@ nnoremap <silent> <leader>rrcv :r ~/.vim/templates/react-component-verbose.jsx<C
 nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR> 
 nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
 nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
+
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
 
 "	" SPELL CORRECTION
 iabbrev flase false
