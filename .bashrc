@@ -30,6 +30,9 @@ if [ $OS = Linux ]; then
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
   export LANGUAGE=en_US.UTF-8
+
+	export DIRC=$HOME/github/choiceats
+	export DIRCS=$HOME/github/choiceats-server
 fi
 
 

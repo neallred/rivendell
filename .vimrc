@@ -68,7 +68,7 @@ let mapleader="\<Space>"
 
 
 " MACROS
-"	" NAVIGATION
+"	" NAVIGATION IN FILES
 inoremap jk <ESC>
 inoremap Jk <ESC>
 inoremap jK <ESC>
@@ -81,7 +81,12 @@ vnoremap <C-k> 26k
 nnoremap <Space> <NOP>
 nnoremap <Leader>a :ArgWrap<CR>
 nnoremap <Leader>vim :source $MYVIMRC<CR>
+
+" " NAVIGATION BETWEEN FILES
 nnoremap <Leader>gf *ggnf.gf<CR>
+command Dirc e $DIRC
+command Dircs e $DIRCS
+
 " find word at top of file where imports are, find the path part, and jump to
 " the file
 "
