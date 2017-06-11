@@ -1,15 +1,36 @@
 " BASIC SET OPTIONS
 noremap <S-k> <NOP>
+set autoread
+set formatoptions+=j
 set hidden
+set history=1000
 set magic
 set nocompatible
 set number
 set numberwidth=1
 set ruler
+set scrolloff=5
+set sidescrolloff=5
 set splitright
-set history=1000
+" if &encoding ==# 'latin1' && has('gui_running')
+"   set encoding=utf-8
+" endif
+set encoding=utf-8
+set fileencoding=utf-8
+
+" chinese characters on line below
+" 漢字
 
 set path=$PWD/**
+
+
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=node_modules/*
+set autochdir
+set wildmenu
+set wildmode=longest:full,full
+set laststatus=2
 
 " PATHOGEN
 execute pathogen#infect()
@@ -63,6 +84,16 @@ nnoremap <Leader>vim :source $MYVIMRC<CR>
 nnoremap <Leader>gf *ggnf.gf<CR>
 " find word at top of file where imports are, find the path part, and jump to
 " the file
+"
+
+" function FS(pathname)
+"   edit **/*a:pathname
+" endfunction
+" command -complete=file -nargs=1 FS edit **/*<args>
+" command -nargs=1 FSS split **/*
+" command -nargs=1 FSV splitv **/*
+autocmd BufWinEnter <buffer> wincmd L
+
 
 "	" BUFFER MANIPULATION
 nnoremap <Leader>d :bd<CR>
@@ -93,3 +124,4 @@ iabbrev fucntion function
 
 " FUGITIVE SETTINGS
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
