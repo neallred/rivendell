@@ -35,6 +35,10 @@ if [ $OS = Linux ]; then
 	export DIRCS=$HOME/github/choiceats-server
 fi
 
+alias grep="grep --color=auto"
+alias vim="vim -O $@"
+alias hrunner="clear && stack ghc $1 && $2"
+alias lst="ls -halt"
 
 # Linux aliases
 if [ $OS = Linux ]; then
@@ -49,4 +53,4 @@ if [ $OS = Darwin ]; then
 	. $HOME/.bashrc_mac
 fi
 
-alias python=/usr/bin/python2
+export PATH=$HOME/.local/bin:$PATH
