@@ -19,7 +19,7 @@ export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 # Linux environment setup
 if [ $OS = Linux ]; then
 	xbindkeys -p
-	export NVM_DIR="/home/nathaniel/.nvm"
+	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 	export PATH=$PATH:~/manual_installs/endless-sky
@@ -40,12 +40,18 @@ alias vim="vim -O $@"
 alias hrunner="clear && stack ghc $1 && $2"
 alias lst="ls -halt"
 
+
+alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
+
 # Linux aliases
 if [ $OS = Linux ]; then
-	alias imladris='/usr/bin/git --git-dir=/home/nathaniel/.rivendell/ --work-tree=/home/nathaniel'
 	alias ls='ls --width=100 --color=auto'
 	alias elinks="elinks -no-connect"
 	alias lynx="lynx -vikeys"
+fi
+
+if [ -f $HOME/.bashrc_work ]; then
+    source $HOME/.bashrc_work
 fi
 
 # Mac environment setup
