@@ -12,6 +12,7 @@ set ruler
 set scrolloff=5
 set sidescrolloff=5
 set splitright
+set showmode
 " if &encoding ==# 'latin1' && has('gui_running')
 "   set encoding=utf-8
 " endif
@@ -24,9 +25,14 @@ set fileencoding=utf-8
 set path=$PWD/**
 
 
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.jpeg,*.ttf
 set wildignore+=*.pdf,*.psd
-set wildignore+=node_modules/*
+set wildignore+=*.xls,.*xlsx,*.doc,*.docx,*.ppt,*.pptx,*.odt
+set wildignore+=*.zip,*.7z,*.gz,*.ZIP,*.rar,*.exe
+set wildignore+=*.mp3,*.mp4,*.wav,*3.gp,*.webm,*.aiff,*.ogg,*.iso,*.m4a
+set wildignore+=node_modules/*,DNKVD/*,choiceats/build/*,choiceats-server/build/*
+set wildignore+=*\\tmp\\*,*.swp,*.swo,.git,.cabal-sandbox
+
 set autochdir
 set wildmenu
 set wildmode=longest:full,full
@@ -84,6 +90,7 @@ nnoremap <Leader>vim :source $MYVIMRC<CR>
 
 " " NAVIGATION BETWEEN FILES
 nnoremap <Leader>gf *ggnf.gf<CR>
+nnoremap ge *:e <C-R>0<CR>
 command Dirc e $DIRC
 command Dircs e $DIRCS
 
@@ -117,6 +124,7 @@ nnoremap <silent> <leader>rrcv :r ~/.vim/templates/react-component-verbose.jsx<C
 nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR> 
 nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
 nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
+nnoremap <silent> <leader>re   :r ~/.vim/templates/elm.elm<CR>
 
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
@@ -130,3 +138,88 @@ iabbrev fucntion function
 " FUGITIVE SETTINGS
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+
+" https://github.com/sdiehl/haskell-vim-proto
+" Each of the sections can be copied into your existing config independent of
+" the other ones.
+
+" == basic ==
+
+set autoindent
+"set clipboard=unnamedplus,autoselect
+
+set completeopt=menuone,menu,longest
+
+set completeopt+=longest
+
+
+set cmdheight=1
+
+" == syntastic ==
+
+map <Leader>s :SyntasticToggleMode<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" == ghc-mod ==
+
+" map <silent> tw :GhcModTypeInsert<CR>
+" map <silent> ts :GhcModSplitFunCase<CR>
+" map <silent> tq :GhcModType<CR>
+" map <silent> te :GhcModTypeClear<CR>
+
+" == supertab ==
+
+" let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+" 
+" if has("gui_running")
+"   imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+" else " no gui
+"   if has("unix")
+"     inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+"   endif
+" endif
+
+" == neco-ghc ==
+
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+" == nerd-tree ==
+
+map <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>of :OpenBookmark f<CR>
+nnoremap <Leader>ob :OpenBookmark b<CR>
+
+
+" == tabular ==
+
+let g:haskell_tabular = 1
+
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
+vmap a, :Tabularize /<-<CR>
+vmap al :Tabularize /[\[\\|,]<CR>
+
+" == ctrl-p ==
+
+" map <silent> <Leader>t :CtrlP()<CR>
+" noremap <leader>b<space> :CtrlPBuffer<cr>
+" let g:ctrlp_custom_ignore = '\v[\/]dist$'
+
+
+" == elm ==
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+
+"BOOKMARKS
