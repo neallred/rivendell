@@ -50,8 +50,8 @@ if [ $OS = Linux ]; then
 	alias lynx="lynx -vikeys"
 fi
 
-if [ -f $HOME/.bashrc_work ]; then
-    source $HOME/.bashrc_work
+if [ -f $HOME/.bashrc_machine ]; then
+    source $HOME/.bashrc_machine
 fi
 
 # Mac environment setup
