@@ -130,10 +130,17 @@ cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 
 "	" SPELL CORRECTION
+"	Javascript
 iabbrev flase false
 iabbrev ture true
 iabbrev cosnt const
 iabbrev fucntion function
+
+" Haskell
+iabbrev JUst Just
+iabbrev Flase False
+iabbrev Ture True
+iabbrev NOthing Nothing
 
 " FUGITIVE SETTINGS
 autocmd BufReadPost fugitive://* set bufhidden=delete
