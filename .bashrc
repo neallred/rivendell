@@ -10,7 +10,7 @@ if [ -f $HOME/.environment_variables ]; then
     source $HOME/.environment_variables
 fi
 
-PS1='@\w $ '
+PS1='natλ\w $ '
 
 set -o vi
 
@@ -56,7 +56,7 @@ fi
 
 # Mac environment setup
 if [ $OS = Darwin ]; then
-	. $HOME/.bashrc_mac
+	. $HOME/.bashrc_apple
 fi
 
 export PATH=$HOME/.local/bin:$PATH

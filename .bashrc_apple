@@ -1,2 +1,3 @@
 alias rm_crap="sudo rm -r ~/Movies ~/Desktop ~/Applications ~/Documents ~/Pictures ~/Music ~/Public"
 alias ls="ls -G"
+alias nvlc="vlc -I curses"

@@ -1,0 +1,23 @@
+# path aliases
+export p_learn="~/self/learn"
+export p_learn_csharp="$p_learn/csharp"
+
+export p_nrt_root="~/nrt"
+
+export p_cbhomes_root="$p_nrt_root/CBHomes/NRT.CCB.Consumer.WebUI"
+export p_cbhomes_html="$p_cbhomes_root/Views"
+export p_cbhomes_css="$p_cbhomes_root/a/c/hc/pieces"
+export p_cbhomes_js="$p_cbhomes_root/assets/javascript/nrt"
+
+# Change Directory aliases
+alias dcs="pushd $p_learn_csharp/pluralsight/CSharpEquality"
+alias dhas="pushd ~/self/learn/haskell"
+alias de="pushd ~/self/learn/elm"
+
+alias dhtml="pushd $p_cbhomes_html"
+alias dcss="pushd $p_cbhomes_css"
+alias djs="pushd $p_cbhomes_js"
+alias droot="pushd $p_cbhomes_root"
+
+alias links="cat ~/self/links.txt"
+alias glinks="grep $@ ~/self/links.txt"
