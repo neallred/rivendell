@@ -19,8 +19,6 @@ export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 # Linux environment setup
 if [ $OS = Linux ]; then
 	xbindkeys -p
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 	export PATH=$PATH:~/manual_installs/endless-sky
 	export TERMINAL=$TERM
@@ -57,6 +55,17 @@ fi
 # Mac environment setup
 if [ $OS = Darwin ]; then
 	. $HOME/.bashrc_apple
+fi
+
+# NVM/Node setup
+if [ $OS = Linux ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+elif [ $OS = Darwin ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 export PATH=$HOME/.local/bin:$PATH
