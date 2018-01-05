@@ -167,6 +167,7 @@ set cmdheight=1
 map <Leader>s :SyntasticToggleMode<CR>
 
 set statusline+=%#warningmsg#
+set statusline+=%f
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
