@@ -10,7 +10,7 @@ if [ -f $HOME/.environment_variables ]; then
     source $HOME/.environment_variables
 fi
 
-PS1='natλ\w $ '
+PS1='\e[0;32mnat\e[0;36mλ\e[0;32m\w $ '
 
 set -o vi
 
