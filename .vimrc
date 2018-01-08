@@ -105,6 +105,7 @@ command Dircs e $DIRCS
 " command -nargs=1 FSS split **/*
 " command -nargs=1 FSV splitv **/*
 autocmd BufWinEnter <buffer> wincmd L
+autocmd BufEnter * lcd %:p:h
 
 
 "	" BUFFER MANIPULATION
@@ -202,9 +203,36 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " == nerd-tree ==
 
-map <Leader>t :NERDTreeToggle<CR>
-nnoremap <Leader>of :OpenBookmark f<CR>
-nnoremap <Leader>ob :OpenBookmark b<CR>
+" map <Leader>t :NERDTreeToggle<CR>
+" nnoremap <Leader>of :OpenBookmark f<CR>
+" nnoremap <Leader>ob :OpenBookmark b<CR>
+
+" poor man's nerd tree
+if filereadable(".machine_vim.vim")
+  source .machine_vim.vim
+endif
+"
+" nnoremap <Leader>o/ :call NeallredDir($p_cbhomes_root)<CR>
+" nnoremap <Leader>oh :call NeallredDir($p_cbhomes_html)<CR>
+" nnoremap <Leader>oc :call NeallredDir($p_cbhomes_css)<CR>
+" nnoremap <Leader>oj :call NeallredDir($p_cbhomes_js)<CR>
+" nnoremap <Leader>ol :call NeallredDir($p_learn)<CR>
+" nnoremap <Leader>oo :call NeallredDir()<CR>
+" 
+" function! NeallredDir(dirToOpen)
+"   let base_dir=$HOME
+"   let trumm_dir=a:dirToOpen
+" 
+" 
+"   if &ft ==# "netrw"
+" 	  execute "vs " . trumm_dir
+"   else
+" 	  execute "vs " . base_dir
+"   endif
+"  
+" endfunction
+
+let g:netrw_banner = 0
 
 
 " == tabular ==
@@ -217,17 +245,8 @@ vmap a- :Tabularize /-><CR>
 vmap a, :Tabularize /<-<CR>
 vmap al :Tabularize /[\[\\|,]<CR>
 
-" == ctrl-p ==
-
-" map <silent> <Leader>t :CtrlP()<CR>
-" noremap <leader>b<space> :CtrlPBuffer<cr>
-" let g:ctrlp_custom_ignore = '\v[\/]dist$'
-
-
 " == elm ==
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
-
-"BOOKMARKS
