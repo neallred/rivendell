@@ -184,56 +184,32 @@ let g:syntastic_check_on_wq = 0
 " map <silent> tq :GhcModType<CR>
 " map <silent> te :GhcModTypeClear<CR>
 
-" == supertab ==
-
-" let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-" 
-" if has("gui_running")
-"   imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-" else " no gui
-"   if has("unix")
-"     inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-"   endif
-" endif
-
 " == neco-ghc ==
 
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-" == nerd-tree ==
 
-" map <Leader>t :NERDTreeToggle<CR>
-" nnoremap <Leader>of :OpenBookmark f<CR>
-" nnoremap <Leader>ob :OpenBookmark b<CR>
+" like netrw, but not ;)
+function! Notrw(dirToOpen)
+" e.g use with nnoremap <Leader>o/ :call Notrw($p_root)<CR>
 
-" poor man's nerd tree
+  if winnr('$') > 1
+    execute "e " . a:dirToOpen
+  else
+    execute "vs " . a:dirToOpen
+  endif
+
+endfunction
+
 if filereadable(".machine_vim.vim")
   source .machine_vim.vim
 endif
-"
-" nnoremap <Leader>o/ :call NeallredDir($p_cbhomes_root)<CR>
-" nnoremap <Leader>oh :call NeallredDir($p_cbhomes_html)<CR>
-" nnoremap <Leader>oc :call NeallredDir($p_cbhomes_css)<CR>
-" nnoremap <Leader>oj :call NeallredDir($p_cbhomes_js)<CR>
-" nnoremap <Leader>ol :call NeallredDir($p_learn)<CR>
-" nnoremap <Leader>oo :call NeallredDir()<CR>
-" 
-" function! NeallredDir(dirToOpen)
-"   let base_dir=$HOME
-"   let trumm_dir=a:dirToOpen
-" 
-" 
-"   if &ft ==# "netrw"
-" 	  execute "vs " . trumm_dir
-"   else
-" 	  execute "vs " . base_dir
-"   endif
-"  
-" endfunction
 
 let g:netrw_banner = 0
 
+" If netrw fails to delete its buffers, use this.
+" autocmd FileType netrw setl bufhidden=delete
 
 " == tabular ==
 

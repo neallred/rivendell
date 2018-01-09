@@ -24,7 +24,7 @@ COUNTER=0
 		SUMMARY_END_PERIOD=`date -v-sun -v-$COUNTER\w -v0H -v0M -v0S '+%s'`
 	fi
 
-	SUMMARY_STATISTICS=`$GIT_NAME log --author=$NAME --pretty=tformat: --numstat --since $SUMMARY_START_PERIOD --until $SUMMARY_END_PERIOD | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
+	SUMMARY_STATISTICS=`$GIT_NAME log --author=$NAME --pretty=tformat: --numstat --since $SUMMARY_START_PERIOD --until $SUMMARY_END_PERIOD -p  -- . ":(exclude)*lock.*" | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
 
 	echo In $NUM_WEEKS weeks, $NAME contributed $SUMMARY_STATISTICS:
 
@@ -44,7 +44,7 @@ while [  $COUNTER -lt $NUM_WEEKS ]; do
 	fi
 
 	DATE_RANGE_MESSAGE="From $START_WEEK_PRETTY to $END_WEEK_PRETTY:" 
-	STATISTICS=`$GIT_NAME log --author=$NAME --pretty=tformat: --numstat --since $START_WEEK --until $END_WEEK | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
+  STATISTICS=`$GIT_NAME log --author=$NAME --pretty=tformat: --numstat --since $START_WEEK --until $END_WEEK -p  -- . ":(exclude)*lock.*" | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s-%s=%s lines\n", add, subs, loc }'`
 	echo $DATE_RANGE_MESSAGE $STATISTICS
 
 
