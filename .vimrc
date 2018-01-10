@@ -20,10 +20,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " chinese characters on line below
-" 漢字
 
 set path=$PWD/**
-
 
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.jpeg,*.ttf
 set wildignore+=*.pdf,*.psd
@@ -91,16 +89,10 @@ nnoremap <Leader>vim :source $MYVIMRC<CR>
 " " NAVIGATION BETWEEN FILES
 nnoremap <Leader>gf *ggnf.gf<CR>
 nnoremap ge *:e <C-R>0<CR>
-command Dirc e $DIRC
-command Dircs e $DIRCS
 
-" find word at top of file where imports are, find the path part, and jump to
-" the file
+" find word at top of file where imports are, find the path part, and jump to the file
 "
 
-" function FS(pathname)
-"   edit **/*a:pathname
-" endfunction
 " command -complete=file -nargs=1 FS edit **/*<args>
 " command -nargs=1 FSS split **/*
 " command -nargs=1 FSV splitv **/*
@@ -209,7 +201,7 @@ endif
 let g:netrw_banner = 0
 
 " If netrw fails to delete its buffers, use this.
-" autocmd FileType netrw setl bufhidden=delete
+autocmd FileType netrw setl bufhidden=delete
 
 " == tabular ==
 

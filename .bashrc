@@ -1,6 +1,5 @@
-#
 # ~/.bashrc
-#
+
 OS=`uname -s`
 
 # If not running interactively, don't do anything
@@ -20,17 +19,12 @@ export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 if [ $OS = Linux ]; then
 	xbindkeys -p
 
-	export PATH=$PATH:~/manual_installs/endless-sky
 	export TERMINAL=$TERM
-  export PATH=`pwd`/depot_tools:"$PATH"
   export PATH=`pwd`/bin:"$PATH"
 
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
   export LANGUAGE=en_US.UTF-8
-
-	export DIRC=$HOME/github/choiceats
-	export DIRCS=$HOME/github/choiceats-server
 fi
 
 alias grep="grep --color=auto"
