@@ -49,17 +49,17 @@ highlight LineNr ctermfg=gray ctermbg=black
 
 let g:jsx_ext_required = 0 " extends JSX highlighting to JS files
 
-" JS TABS
-" set tabstop=4
-" set softtabstop=4
-" set shiftwidth=4
-" set noexpandtab
+" SHORT TABS
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
 
-" C++ TABS
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
+" LONG TABS
+" set tabstop=2
+" set shiftwidth=2
+" set softtabstop=2
+" set expandtab
 
 " SEARCHING
 set hlsearch
@@ -118,6 +118,9 @@ nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR>
 nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
 nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
 nnoremap <silent> <leader>re   :r ~/.vim/templates/elm.elm<CR>
+nnoremap <silent> <leader>rf   a <c-r>=expand("%:t:r")<ESC><ESC>
+nnoremap <silent> <leader>rp   a <c-r>=expand("%:p:r:h")<ESC><ESC>
+" nnoremap <silent> <leader>rf   :r! echo %:t:r p<CR>
 
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
@@ -167,8 +170,11 @@ set cmdheight=1
 
 map <Leader>s :SyntasticToggleMode<CR>
 
+set statusline=
 set statusline+=%#warningmsg#
 set statusline+=%f
+set statusline+=%=
+set statusline+=%m
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
