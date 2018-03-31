@@ -1,6 +1,7 @@
 # ~/.bashrc
 
 OS=`uname -s`
+HISTSIZE=4096
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -9,9 +10,20 @@ if [ -f $HOME/.environment_variables ]; then
     source $HOME/.environment_variables
 fi
 
-PS1='\e[0;32mnat\e[0;36mλ\e[0;32m\w $ '
+PS1='natλ\w $ '
 
 set -o vi
+
+
+alias grep="grep --color=auto"
+alias vim="vim -O $@"
+alias v="vim -O . $@"
+alias lst="ls -halt"
+alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
+
+shopt -s cdspell
+shopt -s dirspell
+shopt -s direxpand
 
 export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 
@@ -27,15 +39,6 @@ if [ $OS = Linux ]; then
   export LANGUAGE=en_US.UTF-8
 fi
 
-alias grep="grep --color=auto"
-alias vim="vim -O $@"
-alias hrunner="clear && stack ghc $1 && $2"
-alias lst="ls -halt"
-
-
-alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
-
-# Linux aliases
 if [ $OS = Linux ]; then
 	alias ls='ls --width=100 --color=auto'
 	alias elinks="elinks -no-connect"
@@ -63,3 +66,4 @@ elif [ $OS = Darwin ]; then
 fi
 
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:$HOME/commands

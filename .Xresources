@@ -3,3 +3,4 @@ XTerm*faceName: VeraMono
 XTerm*faceSize: 8
 XTerm*foreground: rgb:00/b2/00
 XTerm*background: rgb:00/00/00
+xterm*saveLines: 25000

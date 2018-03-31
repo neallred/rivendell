@@ -31,7 +31,6 @@ set wildignore+=*.mp3,*.mp4,*.wav,*3.gp,*.webm,*.aiff,*.ogg,*.iso,*.m4a
 set wildignore+=node_modules/*,DNKVD/*,choiceats/build/*,choiceats-server/build/*
 set wildignore+=*\\tmp\\*,*.swp,*.swo,.git,.cabal-sandbox
 
-set autochdir
 set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
@@ -98,6 +97,7 @@ nnoremap ge *:e <C-R>0<CR>
 " command -nargs=1 FSV splitv **/*
 autocmd BufWinEnter <buffer> wincmd L
 autocmd BufEnter * lcd %:p:h
+" set autochdir
 
 
 "	" BUFFER MANIPULATION
@@ -129,11 +129,19 @@ iabbrev ture true
 iabbrev cosnt const
 iabbrev fucntion function
 
+" Elm
+iabbrev ipmort import
+iabbrev modle model
+
 " Haskell
 iabbrev JUst Just
 iabbrev Flase False
 iabbrev Ture True
 iabbrev NOthing Nothing
+
+" other
+iabbrev Serach Search
+iabbrev serach search
 
 " FUGITIVE SETTINGS
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -199,6 +207,7 @@ if filereadable(".machine_vim.vim")
 endif
 
 let g:netrw_banner = 0
+let g:netrw_list_hide= '.*\.swp$'
 
 " If netrw fails to delete its buffers, use this.
 autocmd FileType netrw setl bufhidden=delete
@@ -218,3 +227,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
+let g:elm_format_autosave = 1
