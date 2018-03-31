@@ -108,6 +108,9 @@ nnoremap <Leader>q :wq<CR>
 nnoremap <Leader>Q :qall<CR>
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bN<CR>
+" :w|%bd|e# <- original solution is this
+nnoremap <Leader>k :w<CR>:%bd<CR>:e#<CR> " keep only the current buffer
+
 
 "	" TEMPLATES
 nnoremap <silent> <leader>rrsfc :r ~/.vim/templates/react-stateless-functional-component.jsx<CR>
@@ -120,7 +123,6 @@ nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
 nnoremap <silent> <leader>re   :r ~/.vim/templates/elm.elm<CR>
 nnoremap <silent> <leader>rf   a <c-r>=expand("%:t:r")<ESC><ESC>
 nnoremap <silent> <leader>rp   a <c-r>=expand("%:p:r:h")<ESC><ESC>
-" nnoremap <silent> <leader>rf   :r! echo %:t:r p<CR>
 
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
