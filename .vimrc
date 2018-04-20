@@ -49,13 +49,13 @@ highlight LineNr ctermfg=gray ctermbg=black
 
 let g:jsx_ext_required = 0 " extends JSX highlighting to JS files
 
-" SHORT TABS
+" LONG TABS
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 
-" LONG TABS
+" SHORT TABS
 " set tabstop=2
 " set shiftwidth=2
 " set softtabstop=2
@@ -71,6 +71,7 @@ let mapleader="\<Space>"
 
 
 " MACROS
+
 "	" NAVIGATION IN FILES
 inoremap jk <ESC>
 inoremap Jk <ESC>
@@ -121,8 +122,18 @@ nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR>
 nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
 nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
 nnoremap <silent> <leader>re   :r ~/.vim/templates/elm.elm<CR>
-nnoremap <silent> <leader>rf   a <c-r>=expand("%:t:r")<ESC><ESC>
-nnoremap <silent> <leader>rp   a <c-r>=expand("%:p:r:h")<ESC><ESC>
+nnoremap <silent> <leader>rf   a<c-r>=expand("%:t:r")<ESC><ESC>
+nnoremap <silent> <leader>rp   a<c-r>=expand("%:p:r:h")<ESC><ESC>
+
+nnoremap <Leader>rc :call system('xclip', @")<CR>
+
+" Janky, currently only supports whole lines
+vnoremap <silent> <Leader>rc :w !xclip<CR><CR>
+
+" Always pastes on a new line
+nnoremap <Leader>rv :r !xclip -o<CR>
+
+
 
 cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>

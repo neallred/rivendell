@@ -18,7 +18,7 @@ set -o vi
 alias grep="grep --color=auto"
 alias vim="vim -O $@"
 alias v="vim -O . $@"
-alias lst="ls -halt"
+alias lst="ls -halt | head -15"
 alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
 
 shopt -s cdspell
