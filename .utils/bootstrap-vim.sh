@@ -10,4 +10,5 @@ git clone https://github.com/mhartington/oceanic-next.git
 git clone https://github.com/mxw/vim-jsx
 git clone https://github.com/pangloss/vim-javascript.git
 git clone https://github.com/tpope/vim-pathogen.git
+git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/w0rp/ale.git

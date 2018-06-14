@@ -1,4 +1,5 @@
-alias rm_crap="sudo rm -r ~/Movies ~/Desktop ~/Applications ~/Documents ~/Pictures ~/Music ~/Public"
+alias rm_apple="rm -r ~/Applications ~/Desktop ~/Documents ~/Movies ~/Music ~/Pictures ~/Public "
 alias ls="ls -G"
 alias nvlc="vlc -I curses"
 alias shutdown="osascript -e 'tell application \"Finder\" to shut down'"
+alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'

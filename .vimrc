@@ -50,16 +50,16 @@ highlight LineNr ctermfg=gray ctermbg=black
 let g:jsx_ext_required = 0 " extends JSX highlighting to JS files
 
 " LONG TABS
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+" set tabstop=4
+" set softtabstop=4
+" set shiftwidth=4
+" set expandtab
 
 " SHORT TABS
-" set tabstop=2
-" set shiftwidth=2
-" set softtabstop=2
-" set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 " SEARCHING
 set hlsearch
@@ -179,22 +179,12 @@ set completeopt+=longest
 
 set cmdheight=1
 
-" == syntastic ==
-
-map <Leader>s :SyntasticToggleMode<CR>
-
 set statusline=
 set statusline+=%#warningmsg#
 set statusline+=%f
 set statusline+=%=
 set statusline+=%m
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 " == ghc-mod ==
 
@@ -242,8 +232,24 @@ vmap a, :Tabularize /<-<CR>
 vmap al :Tabularize /[\[\\|,]<CR>
 
 " == elm ==
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:elm_syntastic_show_warnings = 1
 let g:elm_format_autosave = 1
+
+
+" == ALE ==
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+
+let g:ale_fix_on_save = 1
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '.'
+let g:ale_sign_warning = '.'
+
+nnoremap <C-n> :ALENext<CR>
+nnoremap <C-p> :ALEPrevious<CR>
+
+nnoremap <Leader>os :call Notrw($p_self)<CR>
+nnoremap <Leader>of :call Notrw($p_builder)<CR>
+nnoremap <Leader>o/ :call Notrw($p_leadpages)<CR>
+nnoremap <Leader>ol :call Notrw($p_leads)<CR>
