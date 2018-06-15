@@ -199,6 +199,10 @@ let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 
+nnoremap <Leader>os :call Notrw($p_self)<CR>
+nnoremap <Leader>of :call Notrw($p_builder)<CR>
+nnoremap <Leader>o/ :call Notrw($p_leadpages)<CR>
+nnoremap <Leader>ol :call Notrw($p_leads)<CR>
 " like netrw, but not ;)
 function! Notrw(dirToOpen)
 " e.g use with nnoremap <Leader>o/ :call Notrw($p_root)<CR>
@@ -211,7 +215,7 @@ function! Notrw(dirToOpen)
 
 endfunction
 
-if filereadable(".machine_vim.vim")
+if filereadable("~/.machine_vim.vim")
   source .machine_vim.vim
 endif
 

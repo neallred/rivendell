@@ -17,15 +17,15 @@ set -o vi
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-alias grep="grep --color=auto"
+alias grep="grep -I --color=auto"
 alias vim="vim -O $@"
 alias v="vim -O . $@"
 alias lst="ls -halt | head -15"
 alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
 
 shopt -s cdspell
-shopt -s dirspell
-shopt -s direxpand
+# shopt -s dirspell
+# shopt -s direxpand
 
 # Linux environment setup
 if [ $OS = Linux ]; then
