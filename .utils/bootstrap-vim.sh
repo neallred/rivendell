@@ -7,7 +7,15 @@ git clone https://github.com/tpope/vim-pathogen.git
 
 # BUFFERS / NAVIGATION / FILESYSTEM
 git clone https://github.com/junegunn/fzf.git
-echo "fzf requires running the ./install script contained in its root directory"
+
+echo ""
+echo "|---------------------------------------------------------------------------|"
+echo "| fzf requires running the ./install script contained in its root directory |"
+echo "|---------------------------------------------------------------------------|"
+echo "  pushd ~/.vim/bundle/fzf/ && ./install && popd                              "
+echo "|---------------------------------------------------------------------------|"
+echo ""
+
 git clone https://github.com/junegunn/fzf.vim.git
 git clone https://github.com/tpope/vim-eunuch.git
 
