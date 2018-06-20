@@ -129,3 +129,6 @@ alias ffind="find . | grep -v node_modules | grep -v coverage | grep -v docker $
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/commands
 export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
+export PATH=$PATH:/usr/local/bin
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

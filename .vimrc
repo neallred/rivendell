@@ -215,6 +215,14 @@ function! Notrw(dirToOpen)
 
 endfunction
 
+" netrw: follow symlink and set working directory
+autocmd CursorMoved silent *
+  " short circuit for non-netrw files
+  \ if &filetype == 'netrw' |
+  \   call FollowSymlink() |
+  \   call SetProjectRoot() |
+  \ endif
+
 if filereadable("~/.machine_vim.vim")
   source .machine_vim.vim
 endif
@@ -250,6 +258,9 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '.'
 let g:ale_sign_warning = '.'
 
+highlight ALEError ctermbg=none cterm=underline
+highlight ALEWarning ctermbg=none cterm=underline
+
 nnoremap <C-n> :ALENext<CR>
 nnoremap <C-p> :ALEPrevious<CR>
 
@@ -257,3 +268,7 @@ nnoremap <Leader>os :call Notrw($p_self)<CR>
 nnoremap <Leader>of :call Notrw($p_builder)<CR>
 nnoremap <Leader>o/ :call Notrw($p_leadpages)<CR>
 nnoremap <Leader>ol :call Notrw($p_leads)<CR>
+nnoremap <Leader>or :call Notrw($p_repos_work)<CR>
+nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>; :Buffers<CR>
+nnoremap <Tab> :Buffers<CR>

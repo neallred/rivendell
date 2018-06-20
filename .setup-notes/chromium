@@ -1,0 +1,21 @@
+Add plugins
+-----------
+Chrome blank plugin: https://chrome.google.com/webstore/search/neallred
+Vimium plugin:       https://chrome.google.com/webstore/search/vimium
+Dark Reader plugin:  https://chrome.google.com/webstore/search/dark%20reader
+
+Dark reader settings:
+  not inverted list:
+    localhost
+    css-tricks.com
+    any work development sites, for all environments
+
+  contrast settings:
+    Brightness: Off/0
+    Contrast:   +50
+    Sepia:      Off
+    Grayscale:  +20
+
+Vimium settings:
+  Enable shortcuts on Gmail. Then, in Gmail account, make sure keyboard is turned off.
+  hitting "?" brings up the list of available commands for Vimium.
