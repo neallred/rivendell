@@ -45,7 +45,19 @@ syntax on
 set t_Co=256
 set background=dark
 colorscheme OceanicNext
-highlight LineNr ctermfg=gray ctermbg=black
+highlight LineNr ctermfg=250 ctermbg=233
+highlight Normal ctermfg=250 ctermbg=233
+highlight VertSplit ctermfg=black ctermbg=240
+highlight EndOfBuffer ctermfg=gray ctermbg=233
+highlight SignColumn ctermfg=233 ctermbg=233
+highlight ALEErrorSign ctermbg=233
+highlight ALEWarningSign ctermbg=233
+
+" 7 is near white
+" 250 is a bit darker
+
+" has great examples of setting background and foreground colors in vim:
+" https://github.com/mhartington/oceanic-next/blob/master/colors/OceanicNext.vim
 
 let g:jsx_ext_required = 0 " extends JSX highlighting to JS files
 
