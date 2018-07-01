@@ -4,7 +4,7 @@
 #https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 
 git clone --bare https://github.com/neallred/rivendell.git $HOME/.rivendell
-function config {
+config() {
    /usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME $@
 }
 mkdir -p .config-backup
@@ -17,3 +17,25 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+
+pushd ~/.rivendell
+
+git config user.name "neallred"
+git config user.email "neallred@gmail.com"
+
+popd
+
+source ~/.bashrc
+
+echo " \n\
+  Welcome to Rivendell. The init scripts have all run \n\
+  For initial bootstrapping, consider running \n\
+  \n\
+  $HOME/.bootstrap-env/index.sh \n\
+  \n\
+  This will add Node, Elm, Haskell, and a handful of \n\
+  other packages useful within the CLI and desktop. \n\
+"
+
+# Run this by curling this script into bash.
+# curl https://raw.githubusercontent.com/neallred/rivendell/master/.ford_of_bruinen | bash

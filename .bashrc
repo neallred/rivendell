@@ -27,9 +27,57 @@ shopt -s cdspell
 # shopt -s dirspell
 # shopt -s direxpand
 
+PACKAGE_MANAGER=""
+PACKAGE_INSTALL=""
+
+set_package_manager() {
+  if command -v apt-get >/dev/null 2>&1; then
+    PACKAGE_MANAGER="apt-get"
+    PACKAGE_INSTALL="sudo apt-get install"
+
+  elif command -v pacman >/dev/null 2>&1; then
+    PACKAGE_MANAGER="pacman"
+    PACKAGE_INSTALL="sudo pacman -S"
+
+  elif command -v brew >/dev/null 2>&1; then
+    PACKAGE_MANAGER="brew"
+    PACKAGE_INSTALL="brew install"
+
+  elif command -v yum >/dev/null 2>&1; then
+    PACKAGE_MANAGER="yum"
+    PACKAGE_INSTALL="sudo yum install"
+
+  elif command -v nix-env >/dev/null 2>&1; then
+    PACKAGE_MANAGER="nix-env"
+    PACKAGE_INSTALL="nix-env install"
+
+  else
+    PACKAGE_MANAGER="unknown"
+  fi
+}
+
+set_package_manager
+
+warn_command_not_found() {
+  if [ $PACKAGE_MANAGER = unknown ]; then
+    echo
+    echo "Could not find $@, perhaps try installing via your package manager."
+    echo
+  else
+    echo
+    echo "Could not find $@, perhaps try installing via:"
+    echo $PACKAGE_INSTALL $@
+    echo
+  fi
+}
+
 # Linux environment setup
 if [ $OS = Linux ]; then
-	xbindkeys -p
+  if command -v xbindkeys >/dev/null 2>&1; then
+    xbindkeys -p
+  else
+    echo "$(warn_command_not_found xbindkeys)"
+  fi
 
   export p_user="/home/$(whoami)"
 	export TERMINAL=$TERM
@@ -59,11 +107,7 @@ if [ -f $HOME/.bashrc_machine ]; then
 fi
 
 # NVM/Node setup
-if [ $OS = Linux ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-elif [ $OS = Darwin ]; then
+if [ $OS = Linux ] || [ $OS = Darwin ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
