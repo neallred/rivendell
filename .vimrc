@@ -35,6 +35,9 @@ set wildmenu
 set wildmode=longest:full,full
 set laststatus=2
 
+" ENCRYPTION
+set cryptmethod=blowfish2
+
 " PATHOGEN
 execute pathogen#infect()
 call pathogen#helptags()
