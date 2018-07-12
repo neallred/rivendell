@@ -3,3 +3,4 @@ alias ls="ls -G"
 alias nvlc="vlc -I curses"
 alias shutdown="osascript -e 'tell application \"Finder\" to shut down'"
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+alias mac_turn_startup_sound_off="sudo nvram SystemAudioVolume=%80"

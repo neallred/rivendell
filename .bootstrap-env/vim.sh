@@ -17,6 +17,9 @@ git clone https://github.com/tpope/vim-fugitive.git
 # HASKELL
 git clone https://github.com/neovimhaskell/haskell-vim.git
 
+# JENKINS
+git clone https://github.com/martinda/Jenkinsfile-vim-syntax.git
+
 # JS
 git clone https://github.com/mxw/vim-jsx
 git clone https://github.com/pangloss/vim-javascript.git

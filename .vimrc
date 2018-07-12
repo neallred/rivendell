@@ -48,13 +48,13 @@ syntax on
 set t_Co=256
 set background=dark
 colorscheme OceanicNext
-highlight LineNr ctermfg=250 ctermbg=233
-highlight Normal ctermfg=250 ctermbg=233
+highlight LineNr ctermfg=250 ctermbg=232
+highlight Normal ctermfg=250 ctermbg=232
 highlight VertSplit ctermfg=black ctermbg=240
-highlight EndOfBuffer ctermfg=gray ctermbg=233
-highlight SignColumn ctermfg=233 ctermbg=233
-highlight ALEErrorSign ctermbg=233
-highlight ALEWarningSign ctermbg=233
+highlight EndOfBuffer ctermfg=gray ctermbg=232
+highlight SignColumn ctermfg=232 ctermbg=232
+highlight ALEErrorSign ctermbg=232
+highlight ALEWarningSign ctermbg=232
 
 " 7 is near white
 " 250 is a bit darker

@@ -22,6 +22,7 @@ alias vim="vim -O $@"
 alias v="vim -O . $@"
 alias lst="ls -halt | head -15"
 alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
+alias ttmux="tmux new-session \; split-window -v \; split-window -h \; split-window -h \; split-window -h \; attach"
 
 shopt -s cdspell
 # shopt -s dirspell
@@ -112,6 +113,8 @@ if [ $OS = Linux ] || [ $OS = Darwin ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+export PATH="$PATH:$(yarn global bin)"
 
 grep_opts_common=" \
   -R \
