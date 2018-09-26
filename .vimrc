@@ -98,7 +98,7 @@ nnoremap <C-k> 26k
 vnoremap <C-k> 26k
 
 nnoremap <Space> <NOP>
-nnoremap <Leader>a :ArgWrap<CR>
+nnoremap <Leader>, :ArgWrap<CR>
 nnoremap <Leader>vim :source $MYVIMRC<CR>
 
 " " NAVIGATION BETWEEN FILES
@@ -218,6 +218,7 @@ nnoremap <Leader>os :call Notrw($p_self)<CR>
 nnoremap <Leader>of :call Notrw($p_builder)<CR>
 nnoremap <Leader>o/ :call Notrw($p_leadpages)<CR>
 nnoremap <Leader>ol :call Notrw($p_leads)<CR>
+nnoremap <Leader>oc :call Notrw($p_choiceats)<CR>
 " like netrw, but not ;)
 function! Notrw(dirToOpen)
 " e.g use with nnoremap <Leader>o/ :call Notrw($p_root)<CR>
@@ -287,3 +288,8 @@ nnoremap <Leader>or :call Notrw($p_repos_work)<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>; :Buffers<CR>
 nnoremap <Tab> :Buffers<CR>
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap <Leader>a :Ack! 
