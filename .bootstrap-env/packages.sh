@@ -1,12 +1,12 @@
 # OS Package manager packages to install
 
-
-
 INSTALL_LIST_ALL=" \
+  cmus \
   feh \
   lsof \
   nmap \
   ranger \
+  tmux \
   wget
   "
 
@@ -25,6 +25,7 @@ INSTALL_LIST_MAC_CLI=" \
 # No Mac only CLI programs here yet
 
 INSTALL_LIST_MAC_GUI=" \
+  alacritty
   vlc
   "
 
@@ -77,6 +78,7 @@ if [ $OS = Linux ]; then
 
 elif [ $OS = Darwin ]; then
   brew cask install $INSTALL_LIST_MAC_GUI
+  echo "Alacritty may need more configuration. See Github page for details"
 
 else
   echo "Package bootstrapping currently only supported on Linux and Mac"

@@ -16,6 +16,7 @@ git clone https://github.com/tpope/vim-fugitive.git
 
 # HASKELL
 git clone https://github.com/neovimhaskell/haskell-vim.git
+git clone https://github.com/alx741/vim-hindent.git
 
 # JENKINS
 git clone https://github.com/martinda/Jenkinsfile-vim-syntax.git
@@ -39,6 +40,8 @@ echo "|-------------------------------------------------------------------------
 echo "  pushd ~/.vim/bundle/fzf/ && ./install && popd                              "
 echo "|---------------------------------------------------------------------------|"
 echo ""
+
+git clone https://github.com/mileszs/ack.vim.git
 
 git clone https://github.com/junegunn/fzf.vim.git
 git clone https://github.com/tpope/vim-eunuch.git
