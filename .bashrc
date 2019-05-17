@@ -2,6 +2,7 @@
 
 OS=`uname -s`
 HISTSIZE=4096
+stty -ixon
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -23,6 +24,7 @@ alias v="vim -O . $@"
 alias lst="ls -halt | head -15"
 alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
 alias ttmux="tmux new-session \; split-window -v \; split-window -h \; split-window -h \; split-window -h \; attach"
+alias findbig="du -m | rg \"^\d{5}\""
 
 shopt -s cdspell
 # shopt -s dirspell
@@ -172,6 +174,14 @@ function smartgrep {
 # }
 
 alias ffind="find . | grep -v node_modules | grep -v coverage | grep -v docker $@"
+alias fd="fd \
+  -E ebin/ \
+  -E .stack-work/ \
+  -E node_modules/ \
+  $@\
+"
+alias fdrg="fd | xargs rg $@"
+alias googler="googler --url-handler lynx"
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/commands
@@ -179,3 +189,4 @@ export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 export PATH=$PATH:/usr/local/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH=$PATH:~/self/manual_installs/

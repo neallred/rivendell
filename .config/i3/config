@@ -36,7 +36,8 @@ new_window pixel 0
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec LANG=en_US.UTF-8 xterm
+# bindsym $mod+Return exec LANG=en_US.UTF-8 xterm
+bindsym $mod+Return exec LANG=en_US.UTF-8 urxvt
 #bindsym $mod+Return exec xterm
 # bindsym $mod+Return exec i3-sensible-terminal
 

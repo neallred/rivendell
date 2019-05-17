@@ -3,9 +3,12 @@
 INSTALL_LIST_ALL=" \
   cmus \
   feh \
+  googler \
   lsof \
+  lynx \
   nmap \
   ranger \
+  ripgrep \
   tmux \
   wget
   "
@@ -13,6 +16,7 @@ INSTALL_LIST_ALL=" \
 # These tend to be X based programs
 # vlc has a different install source on Mac, so include it in the Mac list as well
 INSTALL_LIST_LINUX=" \
+  fd-find \
   i3 \
   vlc \
   xbindkeys \
@@ -21,6 +25,7 @@ INSTALL_LIST_LINUX=" \
   "
 
 INSTALL_LIST_MAC_CLI=" \
+  fd
   "
 # No Mac only CLI programs here yet
 

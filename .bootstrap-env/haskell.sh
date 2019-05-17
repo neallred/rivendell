@@ -9,3 +9,11 @@ else
 
   curl -sSL https://get.haskellstack.org/ | sh
 fi
+
+pushd ~/
+
+stack install \
+  hindent \
+  hlint
+
+popd

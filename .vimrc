@@ -169,6 +169,7 @@ iabbrev JUst Just
 iabbrev Flase False
 iabbrev Ture True
 iabbrev NOthing Nothing
+iabbrev derifing deriving
 
 " other
 iabbrev Serach Search
@@ -266,6 +267,7 @@ let g:elm_format_autosave = 1
 " == ALE ==
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'haskell': ['hlint'],
 \}
 
 let g:ale_fix_on_save = 1
@@ -277,6 +279,7 @@ let g:ale_sign_warning = 'ˌ'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:mix_format_on_save = 1
 
 highlight ALEError ctermbg=none cterm=underline
 highlight ALEWarning ctermbg=none cterm=underline
