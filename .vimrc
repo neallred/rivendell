@@ -146,7 +146,7 @@ nnoremap <Leader>rc :call system('xclip', @")<CR>
 vnoremap <silent> <Leader>rc :w !xclip<CR><CR>
 
 " Always pastes on a new line
-nnoremap <Leader>rv :r !xclip -o<CR>
+nnoremap <Leader>rv :r !(command -v xclip && xclip -o \|\| pbpaste) <CR>
 
 
 
@@ -266,9 +266,13 @@ let g:elm_format_autosave = 1
 
 " == ALE ==
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
 \   'haskell': ['hlint'],
+\   'javascript': ['prettier', 'eslint'],
+\   'python': ['isort'],
 \}
+
+" == Python ==
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 let g:ale_fix_on_save = 1
 let g:ale_open_list = 0
@@ -289,9 +293,13 @@ nnoremap <C-p> :ALEPrevious<CR>
 
 nnoremap <Leader>os :call Notrw($p_self)<CR>
 nnoremap <Leader>of :call Notrw($p_builder)<CR>
+nnoremap <Leader>oo :call Notrw($p_foundry)<CR>
+nnoremap <Leader>og :call Notrw($p_forge)<CR>
 nnoremap <Leader>o/ :call Notrw($p_leadpages)<CR>
 nnoremap <Leader>ol :call Notrw($p_leads)<CR>
 nnoremap <Leader>or :call Notrw($p_repos_work)<CR>
+nnoremap <Leader>oc :call Notrw($p_crucible)<CR>
+nnoremap <Leader>om :call Notrw($p_mandrel)<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>; :Buffers<CR>
 nnoremap <Tab> :Buffers<CR>
