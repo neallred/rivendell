@@ -1,11 +1,11 @@
 # OS Package manager packages to install
 
 INSTALL_LIST_ALL=" \
-  cmus \
   feh \
   googler \
   lsof \
   lynx \
+  moc \
   nmap \
   ranger \
   ripgrep \
