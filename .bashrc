@@ -116,8 +116,6 @@ if [ $OS = Linux ] || [ $OS = Darwin ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-export PATH="$PATH:$(yarn global bin)"
-
 grep_opts_common=" \
   -R \
   -I \
