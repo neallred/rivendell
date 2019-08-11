@@ -10,6 +10,7 @@ INSTALL_LIST_ALL=" \
   ranger \
   ripgrep \
   tmux \
+  qutebrowser \
   wget
   "
 
@@ -17,7 +18,6 @@ INSTALL_LIST_ALL=" \
 # vlc has a different install source on Mac, so include it in the Mac list as well
 INSTALL_LIST_LINUX=" \
   fd-find \
-  i3 \
   vlc \
   xbindkeys \
   xclip \
@@ -41,10 +41,10 @@ PACKAGE_INSTALL=""
 PACKAGE_MANAGER_UPDATE=""
 
 set_package_manager() {
-  if command -v apt-get >/dev/null 2>&1; then
-    PACKAGE_MANAGER="apt-get"
-    PACKAGE_INSTALL="sudo apt-get install"
-    PACKAGE_MANAGER_UPDATE="sudo apt-get update"
+  if command -v apt >/dev/null 2>&1; then
+    PACKAGE_MANAGER="apt"
+    PACKAGE_INSTALL="sudo apt install"
+    PACKAGE_MANAGER_UPDATE="sudo apt update"
 
   elif command -v pacman >/dev/null 2>&1; then
     PACKAGE_MANAGER="pacman"
