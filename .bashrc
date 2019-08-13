@@ -105,10 +105,6 @@ fi
 export p_repos_public="$p_user/repos_public"
 export p_repos_work="$p_user/repos_work"
 
-if [ -f $HOME/.bashrc_machine ]; then
-    source $HOME/.bashrc_machine
-fi
-
 # NVM/Node setup
 if [ $OS = Linux ] || [ $OS = Darwin ]; then
   export NVM_DIR="$HOME/.nvm"
@@ -188,3 +184,8 @@ export PATH=$PATH:/usr/local/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:~/self/manual_installs/
+
+if [ -f $HOME/.bashrc_machine ]; then
+    source $HOME/.bashrc_machine
+fi
+
