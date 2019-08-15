@@ -12,7 +12,9 @@ c.downloads.position = "bottom"
 c.fonts.hints = "bold 24pt monospace"
 c.new_instance_open_target = "tab-bg-silent"
 c.qt.highdpi = True
+c.tabs.background = True
 c.tabs.last_close = "close"
+c.tabs.mousewheel_switching = False
 c.url.default_page = "file:///home/nathaniel/.utils/blank.html"
 c.url.searchengines = {"DEFAULT": "https://www.google.com/search?hl=en&q={}" }
 c.url.start_pages = ["file:///home/nathaniel/.utils/blank.html"]
