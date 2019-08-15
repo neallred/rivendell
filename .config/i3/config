@@ -19,7 +19,8 @@ font pango:monospace 10
 # Set window border width
 # Was not originally set, na set on 20161015
 # Default width was 2 but header was of course wider
-new_window pixel 0
+# new_window pixel 0
+default_border pixel 0
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -37,7 +38,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec LANG=en_US.UTF-8 xterm
-bindsym $mod+Return exec LANG=en_US.UTF-8 urxvt
+# bindsym $mod+Return exec LANG=en_US.UTF-8 urxvt
+bindsym $mod+Return exec kitty
 #bindsym $mod+Return exec xterm
 # bindsym $mod+Return exec i3-sensible-terminal
 
@@ -168,7 +170,7 @@ bindsym $mod+Shift+p mode "passthrough"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status -c ~/.config/i3/i3status.conf
+        # status_command i3status -c ~/.config/i3/i3status.conf
     colors {
 # two colors: text background 
 # three colors: border background text
@@ -176,8 +178,8 @@ bar {
         statusline "#AAAAAA"
 
         focused_workspace   "#0B5B38" "#0B5B38" "#AAAAAA"
-        active_workspace   "#AAAAAA" "#333333"
-        inactive_workspace "#777777" "#222222"
-        urgent_workspace   "#AAAAAA" "#900000"
+        active_workspace   "#AAAAAA" "#333333" "#AAAAAA"
+        inactive_workspace "#777777" "#222222" "#777777"
+        urgent_workspace   "#AAAAAA" "#900000" "#AAAAAA"
     }
 }
