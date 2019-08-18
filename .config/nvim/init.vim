@@ -75,7 +75,7 @@ let files_to_source = Mapped(function("AddConfigDir"), [
   \"spell-correction.vim",
   \"whitespace.vim",
 \])
- " load after between-file-navigation
+ " load local-repos.vim after between-file-navigation
 let language_files_to_source = [
   \"~/.config/nvim/javascript.vim",
 \]
