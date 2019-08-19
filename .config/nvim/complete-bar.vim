@@ -1,0 +1,12 @@
+set magic
+set history=1000
+set wildmenu
+set wildmode=longest:full,full
+set laststatus=2
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.jpeg,*.ttf
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.xls,.*xlsx,*.doc,*.docx,*.ppt,*.pptx,*.odt
+set wildignore+=*.zip,*.7z,*.gz,*.ZIP,*.rar,*.exe
+set wildignore+=*.mp3,*.mp4,*.wav,*3.gp,*.webm,*.aiff,*.ogg,*.iso,*.m4a
+set wildignore+=node_modules/*,DNKVD/*,choiceats/build/*,choiceats-server/build/*
+set wildignore+=*\\tmp\\*,*.swp,*.swo,.git,.cabal-sandbox
