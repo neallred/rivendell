@@ -4,8 +4,9 @@ c.completion.height = "20%"
 c.content.autoplay = False
 c.content.default_encoding = "utf-8"
 c.content.geolocation = False
+c.content.headers.user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
 c.content.pdfjs = True
-c.content.private_browsing = True 
+c.content.private_browsing = True
 c.downloads.location.directory = "~/Downloads"
 c.downloads.location.prompt = False
 c.downloads.position = "bottom"
@@ -16,5 +17,5 @@ c.tabs.background = True
 c.tabs.last_close = "close"
 c.tabs.mousewheel_switching = False
 c.url.default_page = "file:///home/nathaniel/.utils/blank.html"
-c.url.searchengines = {"DEFAULT": "https://www.google.com/search?hl=en&q={}" }
+c.url.searchengines = {"DEFAULT": "https://www.google.com/search?hl=en&q={}"}
 c.url.start_pages = ["file:///home/nathaniel/.utils/blank.html"]
