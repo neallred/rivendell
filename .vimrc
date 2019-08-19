@@ -102,7 +102,7 @@ nnoremap <Leader>, :ArgWrap<CR>
 nnoremap <Leader>vim :source $MYVIMRC<CR>
 
 " " NAVIGATION BETWEEN FILES
-nnoremap <Leader>gf *ggnf.gf<CR>
+" nnoremap <Leader>gf *ggnf.gf<CR>
 nnoremap ge *:e <C-R>0<CR>
 
 " find word at top of file where imports are, find the path part, and jump to the file
@@ -129,14 +129,14 @@ nnoremap <Leader>k :w<CR>:%bd<CR>:e#<CR> " keep only the current buffer
 
 
 "	" TEMPLATES
-nnoremap <silent> <leader>rrsfc :r ~/.vim/templates/react-stateless-functional-component.jsx<CR>
-nnoremap <silent> <leader>rrcc :r ~/.vim/templates/react-component-common.jsx<CR>
-nnoremap <silent> <leader>rrcv :r ~/.vim/templates/react-component-verbose.jsx<CR>
+" nnoremap <silent> <leader>rrsfc :r ~/.vim/templates/react-stateless-functional-component.jsx<CR>
+" nnoremap <silent> <leader>rrcc :r ~/.vim/templates/react-component-common.jsx<CR>
+" nnoremap <silent> <leader>rrcv :r ~/.vim/templates/react-component-verbose.jsx<CR>
 " rrtc assumes chai, sinon, mocha
-nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR> 
-nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
-nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
-nnoremap <silent> <leader>re   :r ~/.vim/templates/elm.elm<CR>
+" nnoremap <silent> <leader>rrtc :r ~/.vim/templates/react-tests-chai.js<CR> 
+" nnoremap <silent> <leader>rrtt :r ~/.vim/templates/react-tests-tape.js<CR>
+" nnoremap <silent> <leader>rrtj :r ~/.vim/templates/react-tests-jest.js<CR>
+" nnoremap <silent> <leader>re   :r ~/.vim/templates/elm.elm<CR>
 nnoremap <silent> <leader>rf   a<c-r>=expand("%:t:r")<ESC><ESC>
 nnoremap <silent> <leader>rp   a<c-r>=expand("%:p:r:h")<ESC><ESC>
 
@@ -159,6 +159,8 @@ iabbrev flase false
 iabbrev ture true
 iabbrev cosnt const
 iabbrev fucntion function
+iabbrev fucntion function
+iabbrev deafult default
 
 " Elm
 iabbrev ipmort import
@@ -174,6 +176,7 @@ iabbrev derifing deriving
 " other
 iabbrev Serach Search
 iabbrev serach search
+iabbrev teh the
 
 " FUGITIVE SETTINGS
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -267,8 +270,13 @@ let g:elm_format_autosave = 1
 " == ALE ==
 let g:ale_fixers = {
 \   'haskell': ['hlint'],
-\   'javascript': ['prettier', 'eslint'],
 \   'python': ['isort'],
+\   'javascript': ['prettier', 'eslint'],
+\}
+" \   'javascript': ['prettier', 'eslint'],
+
+let g:ale_linters = {
+\    'typescript': ['tslint', 'tsserver'],
 \}
 
 " == Python ==
@@ -285,6 +293,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:mix_format_on_save = 1
 
+let g:coc_suggest_disable = 1
+
 highlight ALEError ctermbg=none cterm=underline
 highlight ALEWarning ctermbg=none cterm=underline
 
@@ -300,11 +310,46 @@ nnoremap <Leader>ol :call Notrw($p_leads)<CR>
 nnoremap <Leader>or :call Notrw($p_repos_work)<CR>
 nnoremap <Leader>oc :call Notrw($p_crucible)<CR>
 nnoremap <Leader>om :call Notrw($p_mandrel)<CR>
+nnoremap <Leader>ob :call Notrw($p_cloudburst)<CR>
+nnoremap <Leader>gd :call CocAction("jumpDefinition")<CR>
 nnoremap <Leader>f :FZF<CR>
-nnoremap <Leader>; :Buffers<CR>
-nnoremap <Tab> :Buffers<CR>
+nnoremap <Leader>i <Plug>(coc-diagnostic-prev)
+nnoremap <Leader>u <Plug>(coc-diagnostic-next)
+" nnoremap <Leader>u :call CocAction("coc-diagnostic-next")<CR>
+" nnoremap <Leader>; :Buffers<CR>
+" nnoremap <Tab> :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
+" nnoremap g. <C-i>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 nnoremap <Leader>a :Ack! 
+
+" == Typescript ==
+" dark red
+" hi tsxTagName guifg=#E06C75
+" 
+" " orange
+" hi tsxCloseString guifg=#F99575
+" hi tsxCloseTag guifg=#F99575
+" hi tsxAttributeBraces guifg=#F99575
+" hi tsxEqual guifg=#F99575
+" 
+" " yellow
+" hi tsxAttrib guifg=#F8BD7F cterm=italic
+" 
+" hi ReactState guifg=#C176A7
+" hi ReactProps guifg=#D19A66
+" hi Events ctermfg=204 guifg=#56B6C2
+" hi ReduxKeywords ctermfg=204 guifg=#C678DD
+" hi WebBrowser ctermfg=204 guifg=#56B6C2
+" hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+" 
+" " light-grey
+" hi tsxTypeBraces guifg=#999999
+" " " dark-grey
+" hi tsxTypes guifg=#666666
+" 
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+" autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript.jsx

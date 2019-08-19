@@ -172,6 +172,13 @@ alias fd="fd \
   -E ebin/ \
   -E .stack-work/ \
   -E node_modules/ \
+  -E Library\/Caches\/ \
+  -E Library\/Application\ Scripts\/ \
+  -E Library\/Accounts\/ \
+  -E Library\/Calendars\/ \
+  -E Library\/Audio\/ \
+  -E Library\/Application\ Support\/ \
+  -E Library\/com\./ \
   $@\
 "
 alias fdrg="fd | xargs rg $@"
@@ -182,10 +189,8 @@ export PATH=$PATH:$HOME/commands
 export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 export PATH=$PATH:/usr/local/bin
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:~/self/manual_installs/
 
 if [ -f $HOME/.bashrc_machine ]; then
     source $HOME/.bashrc_machine
 fi
-
