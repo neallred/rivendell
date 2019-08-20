@@ -168,20 +168,6 @@ function smartgrep {
 # }
 
 alias ffind="find . | grep -v node_modules | grep -v coverage | grep -v docker $@"
-alias fd="fd \
-  -E ebin/ \
-  -E .stack-work/ \
-  -E node_modules/ \
-  -E Library\/Caches\/ \
-  -E Library\/Application\ Scripts\/ \
-  -E Library\/Accounts\/ \
-  -E Library\/Calendars\/ \
-  -E Library\/Audio\/ \
-  -E Library\/Application\ Support\/ \
-  -E Library\/com\./ \
-  $@\
-"
-alias fdrg="fd | xargs rg $@"
 alias googler="googler --url-handler lynx"
 
 export PATH=$HOME/.local/bin:$PATH
@@ -190,6 +176,7 @@ export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
 export PATH=$PATH:/usr/local/bin
 
 export PATH=$PATH:~/self/manual_installs/
+
 
 if [ -f $HOME/.bashrc_machine ]; then
     source $HOME/.bashrc_machine

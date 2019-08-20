@@ -8,3 +8,4 @@ set splitright
 " let g:netrw_banner = 0
 " let g:netrw_list_hide= '.*\.swp$'
 " let g:netrw_hide = 1                   " hide by default
+nnoremap <Leader>ll :echo line(".")<CR>
