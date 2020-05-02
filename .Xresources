@@ -4,6 +4,8 @@ XTerm*faceSize: 26
 XTerm*foreground: rgb:00/b2/00
 XTerm*background: rgb:00/00/00
 xterm*saveLines: 25000
+xterm*font:     *-fixed-*-*-*-32-*
+
 
 
 
@@ -20,5 +22,6 @@ URxvt.scrollBar: false
 URxvt*foreground: rgb:00/b2/00
 URxvt*background: rgb:00/00/00
 URxvt.font:     xft:bitstream vera sans mono:size=8:antialias=true
+URxvt*font:     *-fixed-*-*-*-32-*
 URxvt*depth: 32
 URxvt*background: rgba:0000/0000/0200/c800

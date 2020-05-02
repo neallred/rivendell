@@ -1,38 +1,33 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'FooSoft/vim-argwrap'
 " Plug 'alx741/vim-hindent'
-" Plug 'derekwyatt/vim-scala'
-" Plug 'ervandew/supertab' 
-" Plug 'godlygeek/tabular'
 " Plug 'janko/vim-test'
 Plug 'junegunn/fzf' , { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+"
+" GO
+Plug 'fatih/vim-go'
+
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" Plug 'othree/csscomplete.vim', { 'for': ['css', 'sass', 'scss'] }
+Plug 'tpope/vim-eunuch'
 
 " PYTHON
 " Plug 'klen/python-mode'
 " Plug 'python/black'
 
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-" Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 
 " COLORS
-" Plug 'Lokaltog/vim-monotone'
-" Plug 'fxn/vim-monochrome'
 Plug 'mhartington/oceanic-next'
-" Plug 'xero/blaquemagick.vim'
+
+Plug 'hwayne/tla.vim'
 
 call plug#end()
 set nocompatible
 
-" let g:python_host_prog='/usr/bin/python2'
-" let g:python3_host_prog='/home/nathaniel/.pyenv/shims/python3'
 " set autoread
-" filetype plugin indent on
 " filetype plugin indent on
 
 let mapleader="\<Space>"
@@ -62,6 +57,7 @@ function! Mapped(fn, l)
     return new_list
 endfunction
 
+ " load local-repos.vim after between-file-navigation
 let files_to_source = Mapped(function("AddConfigDir"), [
   \"between-file-navigation.vim",
   \"colors.vim",
@@ -75,9 +71,9 @@ let files_to_source = Mapped(function("AddConfigDir"), [
   \"spell-correction.vim",
   \"whitespace.vim",
 \])
- " load local-repos.vim after between-file-navigation
 let language_files_to_source = [
   \"~/.config/nvim/javascript.vim",
+  \"~/.config/nvim/go.vim",
 \]
 
 for x in files_to_source
