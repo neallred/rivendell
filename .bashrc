@@ -15,7 +15,7 @@ PS1='natλ\w $ '
 
 set -o vi
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 alias grep="grep -I --color=auto"
