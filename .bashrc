@@ -15,7 +15,7 @@ PS1='natλ\w $ '
 
 set -o vi
 
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 alias grep="grep -I --color=auto"
@@ -102,8 +102,8 @@ if [ $OS = Darwin ]; then
 	. $HOME/.bashrc_apple
 fi
 
-export p_repos_public="$p_user/repos_public"
-export p_repos_work="$p_user/repos_work"
+export p_repos_public="$p_user/rp"
+export p_repos_work="$p_user/rw"
 
 # NVM/Node setup
 if [ $OS = Linux ] || [ $OS = Darwin ]; then
@@ -112,64 +112,6 @@ if [ $OS = Linux ] || [ $OS = Darwin ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-grep_opts_common=" \
-  -R \
-  -I \
-  --color=auto \
-  "
-
-grep_opts_exclude=" \
-  --exclude *.css.map \
-  --exclude *.js.map \
-  --exclude *.min.css \
-  --exclude *.min.js \
-  --exclude *.min.map \
-  --exclude *.snap \
-  --exclude *.svg \
-  --exclude *.xml \
-  --exclude test-report.xml \
-  --exclude yarn-error.log \
-  --exclude yarn.lock \
-  "
-
-grep_opts_exclude_dir=" \
-  --exclude-dir .git \
-  --exclude-dir .node-gyp \
-  --exclude-dir .nvm \
-  --exclude-dir build \
-  --exclude-dir coverage \
-  --exclude-dir dist \
-  --exclude-dir images \
-  --exclude-dir lib \
-  --exclude-dir min \
-  --exclude-dir node_modules \
-  --exclude-dir node_modules.docker \
-  --exclude-dir vendor \
-  --exclude-dir vendor.docker \
-  "
-
-function smartgrep {
-  pushd $1
-  echo "searching $(pwd)"
-  echo "----------------------------------"
-  echo
-  grep \
-    $grep_opts_common \
-    $grep_opts_exclude \
-    $grep_opts_exclude_dir \
-    "${@:2}" \
-    ./
-  popd
-}
-
-# smartgrep is meant to be used in functions like this:
-# function grepproject {
-#   smartgrep "$p_project_root/" "$@"
-# }
-
-alias ffind="find . | grep -v node_modules | grep -v coverage | grep -v docker $@"
-alias googler="googler --url-handler lynx"
-
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/commands
 export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
@@ -177,7 +119,14 @@ export PATH=$PATH:/usr/local/bin
 
 export PATH=$PATH:~/self/manual_installs/
 
-
 if [ -f $HOME/.bashrc_machine ]; then
     source $HOME/.bashrc_machine
 fi
+
+alias ggs="git status"
+alias gcm="git commit -m $@"
+alias gaa="git add $@"
+alias ggp="git push"
+alias gpp="git pull"
+alias ggc="git clone $@"
+alias ggrep="git log -S $@"

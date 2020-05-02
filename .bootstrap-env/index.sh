@@ -21,15 +21,13 @@ logStep "Setting up vim"
 
 . $HOME/.bootstrap-env/vim.sh
 
-
-logStep "Setting up nvm/node/yarn/elm"
+logStep "Setting up nvm/node"
 
 . $HOME/.bootstrap-env/node.sh
 
 logStep "Setting up haskell"
 
 . $HOME/.bootstrap-env/haskell.sh
-
 
 logStep "Creating common directories"
 

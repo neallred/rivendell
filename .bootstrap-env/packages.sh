@@ -2,7 +2,6 @@
 
 INSTALL_LIST_ALL=" \
   feh \
-  googler \
   lsof \
   lynx \
   moc \
