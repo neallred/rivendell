@@ -123,10 +123,10 @@ if [ -f $HOME/.bashrc_machine ]; then
     source $HOME/.bashrc_machine
 fi
 
-alias ggs="git status"
-alias gcm="git commit -m $@"
-alias gaa="git add $@"
+alias gga="git add $@"
+alias ggc="git commit -m $@"
+alias ggclone="git clone $@"
 alias ggp="git push"
-alias gpp="git pull"
-alias ggc="git clone $@"
+alias ggpull="git pull"
 alias ggrep="git log -S $@"
+alias ggs="git status"

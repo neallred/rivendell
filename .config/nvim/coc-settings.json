@@ -8,5 +8,9 @@
   },
   "tsserver.enable": true,
   "tsserver.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "js", "jsx", "ts", "tsx", "go"]
+  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "js", "jsx", "ts", "tsx", "go"],
+  "suggest.floatEnable": false,
+  "signature.target": "float",
+  "coc.preferences.hoverTarget": "echo",
+  "suggest.autoTrigger": "none"
 }

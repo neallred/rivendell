@@ -83,3 +83,4 @@ endfor
 for x in language_files_to_source
   call SourceIfExists(x)
 endfor
+set completeopt-=preview
