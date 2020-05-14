@@ -11,16 +11,16 @@ if [ -f $HOME/.environment_variables ]; then
     source $HOME/.environment_variables
 fi
 
-PS1='natλ\w $ '
+PS1='λ\wλ'
 
 set -o vi
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 alias grep="grep -I --color=auto"
-alias vim="vim -O $@"
-alias v="vim -O . $@"
+alias vim="nvim -O $@"
+alias v="nvim -O . $@"
 alias lst="ls -halt | head -15"
 alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
 alias ttmux="tmux new-session \; split-window -v \; split-window -h \; split-window -h \; split-window -h \; attach"
@@ -124,6 +124,7 @@ if [ -f $HOME/.bashrc_machine ]; then
 fi
 
 alias gga="git add $@"
+alias ggd="git diff $@"
 alias ggc="git commit -m $@"
 alias ggclone="git clone $@"
 alias ggp="git push"
