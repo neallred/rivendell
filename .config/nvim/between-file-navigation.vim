@@ -21,5 +21,7 @@ autocmd BufEnter * silent! lcd %:p:h
 set hidden
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bN<CR>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
 
 autocmd FileType netrw setl bufhidden=delete

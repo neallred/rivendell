@@ -20,7 +20,7 @@ export EDITOR="$VISUAL"
 
 alias grep="grep -I --color=auto"
 alias vim="nvim -O $@"
-alias v="nvim -O . $@"
+alias v="nvim -O $@"
 alias lst="ls -halt | head -15"
 alias imladris="/usr/bin/git --git-dir=$HOME/.rivendell/ --work-tree=$HOME"
 alias ttmux="tmux new-session \; split-window -v \; split-window -h \; split-window -h \; split-window -h \; attach"
@@ -84,7 +84,6 @@ if [ $OS = Linux ]; then
 
   export p_user="/home/$(whoami)"
 	export TERMINAL=$TERM
-  export PATH=`pwd`/bin:"$PATH"
 
   export LC_CTYPE=en_US.UTF-8
   export LC_ALL=en_US.UTF-8
@@ -112,12 +111,7 @@ if [ $OS = Linux ] || [ $OS = Darwin ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:$HOME/commands
-export PATH=$PATH:~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git
-export PATH=$PATH:/usr/local/bin
-
-export PATH=$PATH:~/self/manual_installs/
+export PATH=~/.utils/arch/sound:~/.utils/arch/wireless:~/.utils/git:~/me/bin:~/.local/bin:$PATH
 
 if [ -f $HOME/.bashrc_machine ]; then
     source $HOME/.bashrc_machine
