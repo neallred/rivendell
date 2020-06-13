@@ -1,7 +1,7 @@
 # Needed if repo remotes use ssh and need to be checked for remote HEAD
 if [ -f "$HOME/.ssh/id_rsa" ]; then
-  if [ -z "$(ssh-add -L)" ]; then
-    ssh-add -q $HOME/.ssh/id_rsa
+  if [ -z "$(ssh-add -L 2> /dev/null)" ]; then
+    ssh-add -q $HOME/.ssh/id_rsa 2> /dev/null
   fi
 fi
 for c in $PROJECT_CONTAINERS
